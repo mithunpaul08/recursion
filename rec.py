@@ -3,6 +3,14 @@ input="india is my country all indians"
 input_split=input.split(" ")
 n=[]
 
+def attach_strings_using_lists(index):
+    if (index+1 >= len(input_split)):
+        return [input_split[index]]
+    else:
+        n=[input_split[index]]+attach_strings_using_lists(index + 1)
+    return n
+
+
 def attach_strings(index):
     if (index+1 >= len(input_split)):
         return input_split[index]
@@ -35,5 +43,5 @@ def print_upto(num):
     return sum
 
 if __name__ == '__main__':
-    output = attach_strings(0)
+    output = attach_strings_using_lists(0)
     print(output)
